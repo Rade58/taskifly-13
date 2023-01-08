@@ -19,3 +19,11 @@ npm i --save-dev prisma tailwindcss ts-node tsconfig-paths
 ```
 npm i @prisma/client bcrypt class-variance-authority clsx cookie css-reset-and-normalize react-feather jose
 ```
+
+# Prisma initialized with
+
+```
+npx prisma init
+```
+
+HOSTING POSTGRE ON <https://railway.app> OR <https://render.com> 
