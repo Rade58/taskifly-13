@@ -8,7 +8,7 @@ Built during workshop
 npx create-next-app@latest --experimental-app
 ```
 
-# Dev dependancies
+# Additional Dev dependancies
 
 ```
 npm i --save-dev prisma tailwindcss ts-node tsconfig-paths
