@@ -17,7 +17,7 @@ npm i --save-dev prisma tailwindcss ts-node tsconfig-paths
 # Additional dependancies
 
 ```
-npm i @prisma/client bcrypt class-variance-authority clsx cookie css-reset-and-normalize react-feather jose
+npm i @prisma/client bcrypt @types/bcrypt class-variance-authority clsx cookie css-reset-and-normalize react-feather jose
 ```
 
 # Prisma initialized with
