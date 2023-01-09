@@ -1,7 +1,7 @@
 import type { User } from "@prisma/client";
 import bcrypt from "bcrypt";
 import { SignJWT, jwtVerify } from "jose";
-import { db } from "./db";
+import { db } from "@/lib/db";
 import { cookies as cooks } from "next/headers";
 
 interface PayloadI {
