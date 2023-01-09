@@ -27,3 +27,15 @@ npx prisma init
 ```
 
 HOSTING POSTGRE ON <https://railway.app> OR <https://render.com> 
+
+SYNCING OUR DB WITH A SCHEMA, AND CLIENT GENERTION DONE WITH
+
+```
+npx prisma migrate dev
+```
+
+GUI FOR DB CAN BE STARTED WITH
+
+```
+npx prisma studio
+```
