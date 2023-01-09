@@ -1,7 +1,9 @@
 import { hashPassword } from "@/lib/auth";
-import { db } from "@/lib/db";
+// import { db } from "@/lib/db";
+import { PrismaClient } from "@prisma/client";
 
 import { TASK_STATUS } from "@prisma/client";
+const db = new PrismaClient();
 
 const getRandomTaskStatus = () => {
   const statuses = Object.values(TASK_STATUS);
@@ -33,7 +35,7 @@ async function main() {
 
   const tasks = await Promise.all(
     user.projects.map((project) => {
-      db.task.createMany({
+      return db.task.createMany({
         data: new Array(10).fill(1).map((_, i) => {
           return {
             name: `Task ${i}`,

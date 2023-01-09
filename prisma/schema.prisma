@@ -16,6 +16,10 @@ enum TASK_STATUS {
   COMPLETED
 }
 
+// enum Unknown {
+//   unknown
+// }
+
 model User {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
