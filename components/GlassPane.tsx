@@ -3,7 +3,7 @@ import { clsx } from "clsx";
 
 interface Props {
   children?: ReactNode;
-  className: string;
+  className?: string;
 }
 
 const GlassPane: FC<Props> = ({ children, className }) => {
