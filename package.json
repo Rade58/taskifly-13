@@ -2,6 +2,9 @@
   "name": "taskifly-13",
   "version": "0.1.0",
   "private": true,
+  "prisma": {
+    "seed": "ts-node -P tsconfig-seed.json -r tsconfig-paths/register --transpileOnly prisma/seed.ts"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
