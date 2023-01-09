@@ -9,3 +9,67 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum TASK_STATUS {
+  NOT_STARTED
+  STARTED
+  COMPLETED
+}
+
+model User {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  email     String  @unique
+  password  String
+  firstName String?
+  lastName  String?
+
+  // RELATIONS
+  projects Project[]
+  tasks    Task[]
+}
+
+model Project {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name        String
+  description String?
+  due         DateTime?
+
+  // RELATIONS
+  ownerId String
+  owner   User   @relation(fields: [ownerId], references: [id])
+
+  tasks Task[]
+
+  // INDEXES
+  @@unique([ownerId, name])
+  @@index([ownerId, id])
+}
+
+model Task {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name        String
+  description String
+
+  due     DateTime?
+  deleted Boolean     @default(false)
+  status  TASK_STATUS @default(NOT_STARTED)
+
+  // RELATIONS
+  ownerId String
+  owner   User   @relation(fields: [ownerId], references: [id])
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id])
+
+  // INDEXES
+  @@index([ownerId])
+}
