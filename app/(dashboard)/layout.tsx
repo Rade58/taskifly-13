@@ -3,7 +3,7 @@ import { Inter } from "@next/font/google";
 import "@/styles/global.css";
 import GlassPane from "@/components/GlassPane";
 
-const inter = Inter({ variable: "--font-inter" });
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
 interface Props {
   children?: ReactNode;
