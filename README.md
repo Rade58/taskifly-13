@@ -54,4 +54,4 @@ npx prisma db seed
 
 # Tailwind for styling
 
-[installation](https://tailwindcss.com/docs/guides/nextjs)
+[installation](https://beta.nextjs.org/docs/styling/tailwind-css)
