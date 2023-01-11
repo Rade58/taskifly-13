@@ -1,7 +1,10 @@
 "use client";
 import Link from "next/link";
 import { Settings, User, Grid, Calendar } from "react-feather";
+// YOU NEED TO USE CLIENT COMPONENT
+// BECAUSE WE WANT TO USE A HOOK
 import { usePathname } from "next/navigation";
+//
 import clsx from "clsx";
 import type { FC } from "react";
 
