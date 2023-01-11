@@ -2,6 +2,7 @@ import type { ReactNode, FC } from "react";
 import { Inter } from "@next/font/google";
 import "@/styles/global.css";
 import GlassPane from "@/components/GlassPane";
+import Sidebar from "@/components/Sidebar";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
