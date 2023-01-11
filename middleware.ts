@@ -4,7 +4,6 @@ import { NextMiddleware, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 //
 
-import type { User } from "@prisma/client";
 const PUBLIC_FILE = /\.(.*)$/;
 
 // YOU NEED TO BUILD THIS ONE (WE HAVE ANOTHER THAT USES bcrypt
