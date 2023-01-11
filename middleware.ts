@@ -56,6 +56,7 @@ const middleware: NextMiddleware = async function (req, res) {
   const jwt = req.cookies.get(process.env.COOKIE_NAME as string);
 
   // IF THERE IS NO COOKIE WITH JWT, WE REDIRECT
+
   if (!jwt) {
     req.nextUrl.pathname = "/signin";
     return NextResponse.redirect(req.nextUrl);
