@@ -41,6 +41,7 @@ const middleware: NextMiddleware = async function (req, res) {
 
   // WE DECIDE IF WE ARE GOING TO CALL next OR TO DO A REDIRECT
 
+  // THIS MIDDLEWARES ARE INEXPENSSIVE FUNCTION (SO THIS IS ALSO A VALID WAY)
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
