@@ -12,6 +12,7 @@ const PUBLIC_FILE = /\.(.*)$/;
 const verifyJWT = async (jwt: string) => {
   const { payload } = await jwtVerify(
     jwt,
+    // this is esentially a buffer (we transform secret to buffer)
     new TextEncoder().encode(process.env.JWT_SECRET)
   );
 
