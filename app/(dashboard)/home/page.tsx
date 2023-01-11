@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
 import { Suspense } from "react";
-import { getUserFromCookie } from "@/lib/auth";
-import { db } from "@/lib/db";
-import delay from "@/lib/delay";
+// import { getUserFromCookie } from "@/lib/auth";
+// import { db } from "@/lib/db";
+// import delay from "@/lib/delay";
 
 import Greetings from "@/components/Greetings";
 import GreetingsSkeleton from "@/components/GreetingsSkeleton";
