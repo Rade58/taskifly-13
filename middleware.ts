@@ -26,8 +26,21 @@ const middleware: NextMiddleware = async function (req, res) {
   //
   const { pathname } = req.nextUrl;
 
-  // IF PAGE IS NOT PROTECTED PAGE
-  // WE WON'T BE DOING ANYTHING
+  // if user  requests static files (favicons, images, fro mstatic folder)
+  // we won't do anything speicial
+  // also if user goes to /register or /signin
+  // we must let him access those or hw won't be able
+  // to sign up/in
+
+  // THERE IS ALSO A MTCHER WAY (CHECK THE DOCS)
+  // WITH MATCHER WE CAN RESTRICT MIDDLEWARE FOR EVEN RUNNING
+  // FOR CERTAIN PATH
+
+  // IN THIS CASE MIDDLEWARE RUNS ON EVERY REQUEST AND WE ARE
+  // DECIDING WHAT TO DO ON EVERY REQUEST
+
+  // WE DECIDE IF WE ARE GOING TO CALL next OR TO DO A REDIRECT
+
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
