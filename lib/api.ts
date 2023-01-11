@@ -28,7 +28,12 @@ const fetcher = async ({
   }
 };
 
-export const register = async (user: { email: string; password: string }) => {
+export const register = async (user: {
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+}) => {
   return fetcher({
     body: user,
     json: false,
