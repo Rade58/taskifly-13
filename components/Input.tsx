@@ -4,6 +4,11 @@ import type { ReactNode, FC } from "react";
 interface PropsI {
   children?: ReactNode;
   className?: string;
+  required?: boolean;
+  placeholder?: string;
+  value?: string;
+  onChange?: (e: any) => void;
+  type?: string;
 }
 const Input: FC<PropsI> = ({ className, ...props }) => {
   return (
