@@ -28,10 +28,10 @@ export const createJWT = async (user: PayloadI) => {
   const expirationTime = secondsBetween1970AndNow + 7 * 24 * 60 * 60;
 
   return new SignJWT({ payload: { id: user.id, email: user.email } })
+    .setProtectedHeader({ alg: "HS256", typ: "JWT" })
     .setExpirationTime(expirationTime)
     .setIssuedAt(secondsBetween1970AndNow)
     .setNotBefore(secondsBetween1970AndNow)
-    .setProtectedHeader({ alg: "HS265", typ: "JWT" })
     .sign(new TextEncoder().encode(process.env.JWT_SECRET));
 };
 

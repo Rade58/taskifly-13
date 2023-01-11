@@ -53,19 +53,32 @@ const middleware: NextMiddleware = async function (req, res) {
     return NextResponse.next();
   }
 
+  console.log("PASS 1");
+
   const jwt = req.cookies.get(process.env.COOKIE_NAME as string);
 
   // IF THERE IS NO COOKIE WITH JWT, WE REDIRECT
 
+  console.log("PASS 2");
+
   if (!jwt) {
+    console.log("PASS 3");
+
     req.nextUrl.pathname = "/signin";
     return NextResponse.redirect(req.nextUrl);
   }
 
   try {
+    console.log("PASS 4---------------------- ");
+
     await verifyJWT(jwt.value);
     return NextResponse.next();
   } catch (err) {
+    if (err instanceof Error) {
+      console.log("PASS 5");
+      console.log(err.message);
+    }
+
     console.error(err);
     req.nextUrl.pathname = "/signin";
     return NextResponse.redirect(req.nextUrl);

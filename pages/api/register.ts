@@ -4,34 +4,47 @@ import { createJWT, hashPassword } from "@/lib/auth";
 import { serialize } from "cookie";
 
 const handler: NextApiHandler = async (req, res) => {
-  if (req.method === "POST") {
-    const user = await db.user.create({
-      data: {
-        email: req.body.email,
-        password: await hashPassword(req.body.password),
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-      },
-    });
+  console.log("Hitting register");
 
-    const jwt = await createJWT({
-      email: user.email,
-      id: user.id,
-    });
+  try {
+    if (req.method === "POST") {
+      const user = await db.user.create({
+        data: {
+          email: req.body.email,
+          password: await hashPassword(req.body.password),
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+        },
+      });
 
-    res.setHeader(
-      "Set-Cookie",
-      serialize(process.env.COOKIE_NAME as string, jwt, {
-        httpOnly: true,
-        path: "/",
-        // EXPIRES AFTER 7 DAYS
-        maxAge: 7 * 24 * 60 * 60,
-      })
-    );
+      const jwt = await createJWT({
+        email: user.email,
+        id: user.id,
+      });
 
-    res.status(201);
-    res.end();
-  } else {
+      res.setHeader(
+        "Set-Cookie",
+        serialize(process.env.COOKIE_NAME as string, jwt, {
+          httpOnly: true,
+          path: "/",
+          // EXPIRES AFTER 7 DAYS
+          maxAge: 7 * 24 * 60 * 60,
+        })
+      );
+
+      res.status(201);
+      res.end();
+    } else {
+      res.status(401);
+      res.end();
+    }
+  } catch (err) {
+    if (err instanceof Error) {
+      console.log(
+        JSON.stringify({ message: err.message, name: err.name }, null, 2)
+      );
+    }
+
     res.status(401);
     res.end();
   }
