@@ -13,7 +13,8 @@ const getData = async () => {
   await delay(9000);
   const user = await getUserFromCookie(cookies());
   if (!user) {
-    return [] as ProjectWithTasks[];
+    // return [] as ProjectWithTasks[];
+    return [];
   }
   const projects = await db.project.findMany({
     where: {
