@@ -10,7 +10,7 @@ import GreetingsSkeleton from "@/components/GreetingsSkeleton";
 
 export default function HomeDashboardPage() {
   return (
-    <div className="h-full overflow-y-auto pr-6 w-1/1">
+    <div className="h-full overflow-y-auto pr-6 w-full">
       <div className=" h-full  items-stretch justify-center min-h-[content]">
         <div className="flex-1 grow flex">
           {/** greetings here */}
