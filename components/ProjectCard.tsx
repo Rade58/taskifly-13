@@ -9,7 +9,9 @@ const projectWithTasks = Prisma.validator<Prisma.ProjectArgs>()({
   },
 });
 
-type ProjectWithTasks = Prisma.ProjectGetPayload<typeof projectWithTasks>;
+export type ProjectWithTasks = Prisma.ProjectGetPayload<
+  typeof projectWithTasks
+>;
 
 interface Props {
   children?: ReactNode;
