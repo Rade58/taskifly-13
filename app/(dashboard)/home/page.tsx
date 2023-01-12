@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import Greetings from "@/components/Greetings";
 import GreetingsSkeleton from "@/components/GreetingsSkeleton";
 import ProjectCard from "@/components/ProjectCard";
-import type { ProjectWithTasks } from "@/components/ProjectCard";
+// import type { ProjectWithTasks } from "@/components/ProjectCard";
 import { getUserFromCookie } from "@/lib/auth";
 import delay from "@/lib/delay";
 import { db } from "@/lib/db";
