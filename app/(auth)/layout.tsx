@@ -11,6 +11,7 @@ interface Props {
 }
 
 const AuthRootLayout: FC<Props> = ({ children }) => {
+  //
   return (
     <html lang="en" className={inter.variable}>
       <head />
