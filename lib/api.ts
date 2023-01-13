@@ -7,7 +7,7 @@ const fetcher = async ({
   url: string;
   method: "POST" | "GET";
   body: any;
-  json: boolean;
+  json?: boolean;
 }) => {
   const res = await fetch(url, {
     method,
@@ -48,5 +48,13 @@ export const signin = async (user: { email: string; password: string }) => {
     json: false,
     method: "POST",
     url: "/api/signin",
+  });
+};
+
+export const createNewProject = (name: string) => {
+  return fetcher({
+    body: { name },
+    method: "POST",
+    url: "/api/project",
   });
 };
