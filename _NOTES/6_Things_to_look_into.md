@@ -14,3 +14,7 @@
 
 <https://beta.nextjs.org/docs/data-fetching/fundamentals#parallel-and-sequential-data-fetching>
 
+# Streaming and Suspense
+
+<https://beta.nextjs.org/docs/data-fetching/streaming-and-suspense>
+
