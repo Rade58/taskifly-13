@@ -24,8 +24,10 @@ export default async function ProjectPage({ params }: { params: any }) {
 
   return (
     <div className="h-full overflow-y-auto pr-6 w-1/1 ml-auto mr-16">
-      {/* @ts-ignore */}
-      {project && <TasksCard tasks={project.tasks} title={project.name} />}
+      {project && (
+        // @ts-ignore
+        <TasksCard tasks={project.tasks} title={project.name} getAll={true} />
+      )}
     </div>
   );
 }

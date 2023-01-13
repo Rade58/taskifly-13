@@ -10,38 +10,60 @@ import Card from "./Card";
 interface PropsI {
   children?: ReactNode;
   tasks?: Task[];
-  title: string;
+  title?: string;
+  getAll: boolean;
 }
 
-async function getData() {
+async function getData(options: { getAll: boolean }) {
   const user = await getUserFromCookie(cookies());
-  const tasks = await db.task.findMany({
-    where: {
-      ownerId: user?.id,
-      NOT: {
-        status: TASK_STATUS.COMPLETED,
-        deleted: false,
-      },
-    },
-    take: 5,
-    orderBy: {
-      due: "asc",
-    },
-  });
 
-  return tasks;
+  if (!options.getAll) {
+    const tasks = await db.task.findMany({
+      where: {
+        ownerId: user?.id,
+        NOT: {
+          status: TASK_STATUS.COMPLETED,
+          deleted: false,
+        },
+      },
+      take: 5,
+      orderBy: {
+        due: "asc",
+      },
+    });
+
+    return tasks;
+  } else {
+    const tasks = await db.task.findMany({
+      where: {
+        ownerId: user?.id,
+        NOT: {
+          status: TASK_STATUS.COMPLETED,
+          deleted: false,
+        },
+      },
+      // take: 5,
+      orderBy: {
+        due: "asc",
+      },
+    });
+
+    return tasks;
+  }
 }
 
-const TaskCard = async ({ title, tasks }: PropsI) => {
-  const data = tasks || (await getData());
+const TaskCard = async ({ title, tasks, getAll }: PropsI) => {
+  const data = tasks || (await getData({ getAll }));
 
   //
   return (
     <Card>
       <div className="flex justify-between items-center">
-        <div>
-          <span className="text-3xl text-gray-600">{title}</span>
-        </div>
+        {title && (
+          <div>
+            <span className="text-3xl text-gray-600">{title}</span>
+          </div>
+        )}
         <div>
           <Button intent="text" className="text-violet-600">
             + Create New

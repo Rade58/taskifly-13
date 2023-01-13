@@ -58,7 +58,11 @@ export default async function HomeDashboardPage() {
           <div className="w-1/3 p-3">{/* new project here */}</div>
         </div>
         <div className="mt-6 flex-2 grow w-full flex">
-          <div className="w-full">{/* tasks here */}</div>
+          <div className="w-full">
+            {/* tasks here */}
+            {/* @ts-ignore */}
+            <TasksCard getAll={false} />
+          </div>
         </div>
       </div>
     </div>
