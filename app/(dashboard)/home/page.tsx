@@ -5,6 +5,7 @@ import Greetings from "@/components/Greetings";
 import GreetingsSkeleton from "@/components/GreetingsSkeleton";
 import ProjectCard from "@/components/ProjectCard";
 import TasksCard from "@/components/TasksCard";
+import NewProject from "@/components/NewProject";
 // import type { ProjectWithTasks } from "@/components/ProjectCard";
 import { getUserFromCookie } from "@/lib/auth";
 import delay from "@/lib/delay";
@@ -55,7 +56,10 @@ export default async function HomeDashboardPage() {
               </div>
             );
           })}
-          <div className="w-1/3 p-3">{/* new project here */}</div>
+          <div className="w-1/3 p-3">
+            {/* new project here */}
+            <NewProject />
+          </div>
         </div>
         <div className="mt-6 flex-2 grow w-full flex">
           <div className="w-full">
