@@ -55,3 +55,11 @@ npx prisma db seed
 # Tailwind for styling
 
 [installation](https://beta.nextjs.org/docs/styling/tailwind-css)
+
+# `npx prisma migrate deploy`
+
+WHEN YOU DEPLOY YOU WANT TO PUSH YOUR SCHEMA CHANGES TO A PRODUCTION DATBASE
+
+YOU CAN ADD THIS TO THE BUILD SCRIPT IN VERCEL DASBOARD
+
+OR YOU CAN DO IT MANUALLY BUT YOU NEED TO CHANGE DATBASE_NAME ENVIRONMENT VARIABLE
