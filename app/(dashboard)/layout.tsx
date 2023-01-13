@@ -19,6 +19,7 @@ const DashboardRootLayout: FC<Props> = ({ children }) => {
           <Sidebar />
           {children}
         </GlassPane>
+        <div id="modal"></div>
       </body>
     </html>
   );

@@ -1,5 +1,8 @@
 "use client";
+
 import { FC, useState, FormEvent } from "react";
+
+import { useRouter } from "next/navigation";
 import Modal from "react-modal";
 import { createNewProject } from "@/lib/api";
 import Button from "./Button";
@@ -13,10 +16,15 @@ const NewProject: FC = () => {
   const closeModal = () => setIsOpen(false);
   const [name, setName] = useState("");
 
+  const { refresh } = useRouter();
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await createNewProject(name);
     closeModal();
+    // BECAUSE WE WANT TO SEE UPDATES ON THE PAGE
+    // SO FAR THIS IS THE ONLY WAY (MANUAL OR PROGRAMTIC REFRESH)
+    refresh();
   };
 
   return (
