@@ -26,11 +26,11 @@ const middleware: NextMiddleware = async function (req, res) {
   //
   const { pathname } = req.nextUrl;
 
-  if (pathname === "/") {
+  /* if (pathname === "/") {
     req.nextUrl.pathname = "/home";
     return NextResponse.rewrite(req.nextUrl);
   }
-
+ */
   // if user  requests static files (favicons, images, fro mstatic folder)
   // we won't do anything speicial
   // also if user goes to /register or /signin
