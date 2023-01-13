@@ -12,7 +12,7 @@ import delay from "@/lib/delay";
 import { db } from "@/lib/db";
 
 const getData = async () => {
-  await delay(9000);
+  // await delay(9000);
   const user = await getUserFromCookie(cookies());
   if (!user) {
     // return [] as ProjectWithTasks[];
