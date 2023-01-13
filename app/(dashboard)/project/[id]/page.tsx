@@ -19,13 +19,15 @@ const getData = async (id: string) => {
   return project;
 };
 
-export default async function ProjectPage(p: {
+interface PagePropsI {
   params: any;
   searchParams: any;
-}) {
-  console.log({ p });
+}
 
-  const project = await getData(p.params.id as string);
+export default async function ProjectPage(pageProps: PagePropsI) {
+  console.log({ pageProps });
+
+  const project = await getData(pageProps.params.id as string);
 
   return (
     <div className="h-full overflow-y-auto pr-6 w-1/1 ml-auto mr-16">
