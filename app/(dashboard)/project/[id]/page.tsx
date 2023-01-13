@@ -24,7 +24,9 @@ interface PagePropsI {
   searchParams: any;
 }
 
-export default async function ProjectPage(pageProps: PagePropsI) {
+// export default async function ProjectPage(pageProps: PagePropsI) {
+// @ts-ignore
+export default async function ProjectPage(pageProps) {
   console.log({ pageProps });
 
   const project = await getData(pageProps.params.id as string);
